@@ -1,15 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import './Components/CommonCss/commonStyle.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import { DataContextProvider } from './contexts/DataContext';
+import { initializeIcons } from '@fluentui/react/lib/Icons';
 const con = document.getElementById('root');
+initializeIcons(/* optional base url */);
 if (con) {
   const root = ReactDOM.createRoot(con);
   root.render(
     <React.StrictMode>
-      <App />
+      <DataContextProvider>
+        <App />
+      </DataContextProvider>
     </React.StrictMode>
   );
 }
